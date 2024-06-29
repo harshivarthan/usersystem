@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <title>AdminDashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+        }
+        .sidebar {
+            width: 150px;
+            height: 100vh;
+            background-color: blue;
+            padding: 1em;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .button {
+            width: 150px;
+            margin: 1px;
+            border: 1px solid blue;
+            padding: 1em;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Style the sidenav links and the dropdown button */
+        .sidenav a, .dropdown-btn {
+            width: 150px;
+            margin: 1px;
+            border: 1px solid blue;
+            padding: 1em;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Add an active class to the active dropdown button */
+        .active {
+            background-color: lightskyblue;
+            color: black;
+        }
+
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            padding-left: 8px;
+        }
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+
+        /* Some media queries for responsiveness */
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        /* Main Page */
+        .main{
+            padding: 2em;
+        }
+        
+        .container {  
+            width: calc(100%-150px);
+            padding: 50px;  
+            /* background-color: lightblue;   */
+        }  
+        input[type="text"], input[type="password"], textarea {  
+            width: calc(100% - 30px);  
+            padding: 15px;  
+            margin: 5px 0 22px 0;  
+            display: inline-block;  
+            border: none;  
+            background: #f1f1f1;  
+        }  
+        input[type="text"]:focus, input[type="password"]:focus {  
+            background-color: orange;  
+            outline: none;  
+        }  
+        div {  
+            padding: 10px 0;  
+        }  
+        hr {  
+            border: 1px solid #f1f1f1;  
+            margin-bottom: 25px;  
+        }  
+        .registerbtn {  
+            background-color: #4CAF50;  
+            color: white;  
+            padding: 16px 20px;  
+            margin: 8px 0;  
+            border: none;  
+            cursor: pointer;  
+            width: 100%;  
+            opacity: 0.9;  
+        }  
+        .registerbtn:hover {  
+            opacity: 1;  
+        }
+        .Form {
+            /* margin-left: 150px; */
+            margin: 2em 10em;
+            padding: 20px;
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+        }
+        /* Box */
+        .card-board{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2em 10em;
+
+        }
+        .card{
+            width: 230px;
+            height: 100px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            margin: 5px;
+        }
+        .card-icon{
+            display: flex;
+            
+        }
+        .card-icon i{
+            margin: 15px 0;
+            cursor: pointer;
+            font-size: 20px;
+            margin-right: 12.5rem;
+            color: rgb(83, 82, 82);
+        }
+        .card span{
+            font-size: 17px;
+            color: black;
+        }
+        .card h5{
+            margin-top: 5px;
+        }
+        
+.container {
+  display: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: gray;
+  color:red;
+  padding: 10px;
+}
+.project-name {
+  font-size: 24opx;
+  padding-left: 200px;
+  text-align: center;
+}
+
+.menu-bar {
+  display: flex;
+}
+
+.menu-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: red;
+}
+table {
+        width: 800px; /* Set the width of the table */
+        height: 100px; /* Set the height of the table */
+        border-collapse: collapse; /* Collapse the borders between cells */
+    }
+    
+    th, td {
+        border: 1px solid black; /* Add a border around cells */
+        padding: 8px; /* Add padding to cells */
+        text-align: center; /* Center-align text */
+    }
+  
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="project-name"><h3>ADMIN DASHBOARD</h3></div>
+       
+      </div>
+      
+    <div class="sidebar">
+        <button class="button tablink" onclick="application(event,'Home')"><i class="fa fa-home" aria-hidden="true"></i> Home</button>
+        <button class="button tablink" onclick="application(event,'B/W date Report')"><i class="fa fa-calendar" aria-hidden="true"></i> Manage User</button>
+        <button class="button tablink" onclick="application(event,'Registered User')"><i class="fa fa-user" aria-hidden="true"></i> Signout</button>
+    </div>
+    <div class="main">
+        <div id="Home" class="Form" style="display: contents; background-color: rgb(45, 26, 128);">
+            <div class="card-board">
+                <div class="card" onclick="openBox(event,'Birth certificate application')">
+                    <div class="card-icon">
+                        <i class="fas fa-file" aria-hidden="true"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+        
+                    <span>Total Registered User:{{usercount}}</span>
+                    <h5>ViewDetails</h5>
+                </div>             
+                
+                </div>
+        </div>
+
+        <div id="Birth certificate application" class="Form" style="display: none;">
+            <h2>Manage User</h2>
+            <table border="1">
+                <thead>
+
+    <tr>
+
+    <th>ID</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Cpassword</th>
+    <th>Contact</th>
+    <th>Delete</th>
+    <th>Update</th>
+    
+</tr>
+</thead>
+<tbody>
+    {% for user in users %}
+   <tr>
+<td>{{user.id}}</td>
+<td>{{user.firstname}}</td>
+<td>{{user.lastname}}</td>
+<td>{{user.email}}</td>
+<td>{{user.password}}</td>
+<td>{{user.cpassword}}</td>
+<td>{{user.contact}}</td>
+
+
+<td><a href="delete/{{user.id}}">delete</a></td>
+<td><a href="update/{{user.id}}">update</a></td>
+
+</tr>
+{% endfor %}
+</tbody>
+
+
+            </table>
+           
+        </div>
+        
+
+        <div id="Verified Application" class="Form">
+            <h2>Verified Application</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A corrupti voluptas quia sit et modi, accusamus deleniti nostrum, at voluptate dolor eius, quasi accusantium exercitationem illum nemo ipsum impedit alias?</p>
+        </div>
+
+        <div id="Rejected Application" class="Form">
+            <h2>Rejected Application</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A corrupti voluptas quia sit et modi, accusamus deleniti nostrum, at voluptate dolor eius, quasi accusantium exercitationem illum nemo ipsum impedit alias?</p>
+        </div>
+
+        <div id="All Application" class="Form">
+            <h2>All Application</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A corrupti voluptas quia sit et modi, accusamus deleniti nostrum, at voluptate dolor eius, quasi accusantium exercitationem illum nemo ipsum impedit alias?</p>
+        </div>
+
+        <div id="B/W date Report" class="Form">
+            <h2>Manage User</h2>
+            <table border="1">
+                <thead>
+
+    <tr>
+
+    <th>ID</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Cpassword</th>
+    <th>Contact</th>
+    <th>Delete</th>
+    <th>Update</th>
+    
+</tr>
+</thead>
+<tbody>
+    {% for user in users %}
+   <tr>
+<td>{{user.id}}</td>
+<td>{{user.firstname}}</td>
+<td>{{user.lastname}}</td>
+<td>{{user.email}}</td>
+<td>{{user.password}}</td>
+<td>{{user.cpassword}}</td>
+<td>{{user.contact}}</td>
+
+
+<td><a href="delete/{{user.id}}">delete</a></td>
+<td><a href="update/{{user.id}}">update</a></td>
+
+</tr>
+{% endfor %}
+</tbody>
+
+
+            </table>
+           
+        </div>
+
+        <div id="Search" class="Form">
+            <h2>Search</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A corrupti voluptas quia sit et modi, accusamus deleniti nostrum, at voluptate dolor eius, quasi accusantium exercitationem illum nemo ipsum impedit alias?</p>
+        </div>
+        
+        <div id="Registered User" class="Form">
+        <a href="/signout"><h3>SignOut</h3></a>   
+    </div>
+    <script>
+        // Button Function
+        function application(evt, Form) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("Form");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("red");
+            }
+            if(Form == "Home"){
+                document.getElementById(Form).style.display = "contents";
+
+            }
+            else{
+
+                document.getElementById(Form).style.display = "block";
+            }
+            evt.currentTarget.className += " red";
+        }
+
+        // Dropdown Menu
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) 
+        {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") 
+            {
+                dropdownContent.style.display = "none";
+            } 
+            else 
+            {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+
+        // Box
+        function openBox(evt, boxName) {
+    var i, x;
+    x = document.getElementsByClassName("Form");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(boxName).style.display = "block";
+}
+
+    </script>
+</body>
+</html>

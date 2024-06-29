@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form {
+    text-align: center;
+}
+
+.profile-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color:#00ff22;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      
+            <h2>User Profile</h2>
+            <div class="form-group">
+                <label for="Firstname">Firstname</label>
+                <input type="Firstname" id="Firstname" value="{{user.firstname}}" required>
+            </div>
+            <div class="form-group">
+                <label for="Lastname">Lastname</label>
+                <input type="Lastname" id="Lastname" name="Lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="Email" id="Email" name="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="Password" id="Password" name="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="Cpassword">Cpassword</label>
+                <input type="Cpassword" id="Cpassword" name="Cpassword" required>
+            </div>
+            <div class="form-group">
+                <label for="Contact">Contact</label>
+                <input type="Contact" id="Contact" name="Contact" required>
+            </div>  
+            <a href="userprofile"><h3>Edit</h3></a></button>
+           
+    </div>
+</body>
+</html>
